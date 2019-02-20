@@ -1,55 +1,13 @@
-#SUBROUTINE compac
+# -*- coding: utf-8 -*-
 
-  ## It calculates sediment compaction
-  #USE variables
-  #IMPLICIT NONE
-
-## local variables
-  #REAL(KIND=8) a(6),b(6,5),ch(6),ct(6),f(6)
-  #REAL(KIND=8) column(jti),oldColumn(jti),sstor(nTotalMat)
-  #REAL(KIND=8) mate(nTotalMat),dPor(nTotalMat)
-  #REAL(KIND=8) sume,avedummy,consum,z,avepo,dp,avepor
-  #REAL(KIND=8) x,h,hold,te,temax,ytemp,xtemp,dpdt
-## counter
-  #INTEGER j,k,mat,node,k1,l
+import modules.var as v
 
 
-      #a(2)=0.222222222222222      #2.0/9.0
-      #a(3)=0.333333333333333      #1.0/3.0
-      #a(4)=0.75                   #3.0/4.0
-      #a(5)=1.0
-      #a(6)=0.833333333333334      #5.0/6.0
-      #b(2,1)=0.222222222222222    #2.0/9.0
-      #b(3,1)=0.083333333333333    #1.0/12.0
-      #b(3,2)=0.25                 #1.0/4.0
-      #b(4,1)=0.5390625            #69.0/128.0
-      #b(4,2)=-1.8984375           #-243.0/128.0
-      #b(4,3)=2.109375             #135.0/64.0
-      #b(5,1)=-1.4166666666666667  #-17.0/12.0
-      #b(5,2)=6.75                 #27.0/4.0
-      #b(5,3)=-5.4                 #-27.0/5.0
-      #b(5,4)=1.0666666666666667   #16.0/15.0
-      #b(6,1)=0.15046296296296297  #65.0/432.0
-      #b(6,2)=-0.3125              #-5.0/16.0
-      #b(6,3)=0.8125               #13.0/16.0
-      #b(6,4)=0.14814814814814814  #4.0/27.0
-      #b(6,5)=0.034722222222222224 #5.0/144.0
-      #ch(1)=0.10444444444444445   #47.0/450.0
-      #ch(2)=0.0
-      #ch(3)=0.48                  #12.0/25.0
-      #ch(4)=0.14222222222222222   #32.0/225.0
-      #ch(5)=0.03333333333333333   #1.0/30.0
-      #ch(6)=0.24                  #6.0/25.0
-      #ct(1)=-0.006666666666666667 #-1.0/150.0
-      #ct(2)=0.0
-      #ct(3)=0.03                  #3.0/100.0
-      #ct(4)=-0.21333333333333335  #-16.0/75.0
-      #ct(5)=-0.05                 #-1.0/20.0
-      #ct(6)=0.24                  #6.0/25.0
-      #avepo=0.0
-
-        #forall (mat=1:nTotalMat) sstor(mat)=(poroIni(mat)**3)/(ss(mat)*(1-poroIni(mat))**2)
-        #mate=0.0
+def compac():
+    # It calculates sediment compaction
+    for i in range(v.nTotalMat):
+          sstor[mat] = (poroIni[mat]**3)/(ss[mat]*(1-poroIni[mat])**2)
+          mate = 0.0
         #do node=1,nNode
           #column=0.0
           #oldColumn=0.0
