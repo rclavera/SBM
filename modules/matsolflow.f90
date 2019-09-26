@@ -25,12 +25,12 @@ subroutine matsolFlow (dt,nNode,q,bw,typBC,head,nElem,in,tt,cn,nl,xCo,yCo)
       end forall
 !       matrix assembly loop over elements
       do l=1,nElem
-        b(1)=yCo(in(l,2))-yCo(in(l,3))
-        b(2)=yCo(in(l,3))-yCo(in(l,1))
-        b(3)=yCo(in(l,1))-yCo(in(l,2))
-        c(1)=xCo(in(l,3))-xCo(in(l,2))
-        c(2)=xCo(in(l,1))-xCo(in(l,3))
-        c(3)=xCo(in(l,2))-xCo(in(l,1))
+        b(1) = yCo(in(l,2))-yCo(in(l,3))
+        b(2) = yCo(in(l,3))-yCo(in(l,1))
+        b(3) = yCo(in(l,1))-yCo(in(l,2))
+        c(1) = xCo(in(l,3))-xCo(in(l,2))
+        c(2) = xCo(in(l,1))-xCo(in(l,3))
+        c(3) = xCo(in(l,2))-xCo(in(l,1))
         de=(b(1)*c(2)-b(2)*c(1))*0.5
         pe(1,1)=(b(1)*b(1)*tt(l)+c(1)*c(1)*tt(l)+(b(1)*c(1)+c(1)*b(1))*0.0)/de*0.25
         pe(1,2)=(b(1)*b(2)*tt(l)+c(1)*c(2)*tt(l)+(b(1)*c(2)+c(1)*b(2))*0.0)/de*0.25
